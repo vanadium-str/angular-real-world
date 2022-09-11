@@ -1,0 +1,52 @@
+.nav {
+    background: #fff;
+    border-bottom: 2px solid #5CB85C;
+    color: #5CB85C;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.username {
+    color: #5CB85C;
+    cursor: pointer;
+}
+
+.username:hover {
+    border-bottom: 2px solid #5CB85C;
+}
+
+.colorGrey {
+    color: #bbb;
+}
+
+.tag {
+    border: 1px solid #ddd;
+    color: #aaa;
+    background: none;
+    font-weight: 300;
+    font-size: 0.8rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    white-space: nowrap;
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+
+.like {
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    color: #5CB85C;
+    background-image: none;
+    background-color: transparent;
+    border-color: #5CB85C;
+}
