@@ -1,0 +1,45 @@
+<div
+    *ngFor="let article of articles"
+    class="mb-5"
+    >
+    <div class="flex justify-between">
+        <div class="flex items-center">
+            <img
+            [src]="article.author.image"
+            class="avatar mr-3"
+            >
+            <div>
+                <div class="username inline-block">
+                    {{ article.author.username }}
+                </div>
+                <div class="text-xs colorGrey">
+                    {{ article.createdAt | date:'longDate' }}
+                </div>
+            </div>
+        </div>
+        <button class="like border">
+            {{ article.favoritesCount }}
+        </button>
+    </div>
+    <div class="mt-3">
+        <div class="font-medium text-2xl">
+            {{ article.title }}
+        </div>
+        <div class="text-base colorGrey">
+            {{ article.description }}
+        </div>
+    </div>
+    <div class="flex justify-between mt-3">
+        <div class="text-xs colorGrey">
+            Read more...
+        </div>
+        <div class="flex">
+            <div
+                class="tag mr-1"
+                *ngFor="let tag of article.tagList"
+            >
+                {{ tag }}
+            </div>
+        </div>
+    </div>
+</div>

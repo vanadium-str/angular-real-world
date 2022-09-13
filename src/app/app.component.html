@@ -4,12 +4,31 @@
         <a routerLink='/' class="colorGrey cursor-pointer">
             Home
         </a>
-        <a routerLink='/login' class="colorGrey ml-5 cursor-pointer">
-            Sign in
-        </a>
-        <a routerLink='/register' class="colorGrey ml-5 cursor-pointer">
-            Sign up
-        </a>
+
+        <div
+            *ngIf="!(loginUser$ | async)"
+        >
+            <a routerLink='/login' class="colorGrey ml-5 cursor-pointer">
+                Sign in
+            </a>
+            <a routerLink='/register' class="colorGrey ml-5 cursor-pointer">
+                Sign up
+            </a>
+        </div>
+
+        <div
+            *ngIf="loginUser$ | async"
+        >
+            <a routerLink='/' class="colorGrey ml-5 cursor-pointer">
+                New article
+            </a>
+            <a routerLink='/' class="colorGrey ml-5 cursor-pointer">
+                Settings
+            </a>
+            <a routerLink='/' class="colorGrey ml-5 cursor-pointer">
+                {{ user.username }}
+            </a>
+        </div>
     </div>
 </div>
 <router-outlet></router-outlet>

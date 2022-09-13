@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { IUserDetails, IUserRequest } from 'src/app/models/model-user';
 import { GetUser } from 'src/app/store/actions/user-data.actions';
+import { LoginUser } from 'src/app/store/actions/flags.actions';
 import { getUserSelector } from 'src/app/store/selectors/user-data.selectors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -12,18 +15,20 @@ import { getUserSelector } from 'src/app/store/selectors/user-data.selectors';
 export class LoginPageComponent implements OnInit {
 
   constructor(
-    private store: Store
+    private store: Store,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
-  User = {
+  user = {
     user: {
       email: '',
       password: ''
     }
   };
+  registeredUser: IUserDetails;
 
   form = new FormGroup({
     email: new FormControl<string>(''),
@@ -38,10 +43,18 @@ export class LoginPageComponent implements OnInit {
     }else if(value.password === ''){
       alert('Please add password');
     }else{
-      this.User.user = value;
-      console.log(this.User);
-      this.store.dispatch(new GetUser(this.User))
-      this.user$.subscribe((data) => console.log(data))
+      this.user.user = value;
+      console.log(this.user);
+      this.store.dispatch(new GetUser(this.user))
+      this.user$.subscribe((data) => {
+        console.log(data);
+        this.registeredUser = data;
+        console.log(this.registeredUser);
+        if(this.registeredUser.token){
+          this.store.dispatch(new LoginUser);
+          this.router.navigate(['/']);
+        }
+      })
     }    
   }
 

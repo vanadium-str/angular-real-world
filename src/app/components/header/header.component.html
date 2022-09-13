@@ -1,4 +1,7 @@
-<div class="banner flex flex-col justify-center">
+<div
+    class="banner flex flex-col justify-center"
+    *ngIf="!(loginUser$ | async)"
+>
     <h1 class="headerLogo">
         conduit
     </h1>

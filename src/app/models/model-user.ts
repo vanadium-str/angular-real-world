@@ -1,11 +1,13 @@
 export interface IUser {
-    user: {
-        email: string,
-        token: string,
-        username: string,
-        bio: string,
-        image: string
-    }
+    user: IUserDetails
+}
+
+export interface IUserDetails {
+    email: string,
+    token: string,
+    username: string,
+    bio: string,
+    image: string
 }
 
 export interface IUserRequest {

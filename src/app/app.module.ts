@@ -17,6 +17,9 @@ import { environment } from '../environments/environment';
 import { GetUserEffects } from './store/effects/user-data.effects';
 import { appReducers } from './store';
 import { HttpClientModule } from '@angular/common/http';
+import { ArticlesEffects } from './store/effects/articles.effects';
+import { AllArticlesComponent } from './components/all-articles/all-articles.component';
+import { MyArticlesComponent } from './components/my-articles/my-articles.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     MainPageComponent,
     RegisterPageComponent,
     LoginPageComponent,
-    ArticlesPageComponent
+    ArticlesPageComponent,
+    AllArticlesComponent,
+    MyArticlesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([GetUserEffects]),
+    EffectsModule.forRoot([GetUserEffects, ArticlesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
