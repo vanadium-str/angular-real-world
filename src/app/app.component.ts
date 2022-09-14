@@ -24,5 +24,6 @@ export class AppComponent implements OnInit {
   loginUser$ = this.store.select(loginUserSelector);
   user$ = this.store.select(getUserSelector);
   user: IUserDetails;
+  page = '';
 
 }

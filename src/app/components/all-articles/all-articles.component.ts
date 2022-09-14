@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IArticle } from 'src/app/models/model-article';
+import { VariablesService } from 'src/app/services/variables.service';
 import { GetAllArticles } from 'src/app/store/actions/articles.action';
 import { articlesSelector } from 'src/app/store/selectors/articles.selectors';
 
@@ -12,7 +13,8 @@ import { articlesSelector } from 'src/app/store/selectors/articles.selectors';
 export class AllArticlesComponent implements OnInit {
 
   constructor(
-    private store: Store
+    private store: Store,
+    private variablesService: VariablesService
   ) { }
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class AllArticlesComponent implements OnInit {
 
   articles$ = this.store.select(articlesSelector);
   articles: IArticle[];
+
+  setIndex(index: number){
+    this.variablesService.setIndex(index);
+  }
 
 }

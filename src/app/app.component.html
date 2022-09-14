@@ -1,17 +1,32 @@
 <div class="h-14 flex items-center justify-between">
     <app-logo></app-logo>
     <div class="navigation flex">
-        <a routerLink='/' class="colorGrey cursor-pointer">
+        <a
+            routerLink='/'
+            class="colorGrey cursor-pointer"
+            (click)="page = ''"
+            [ngClass]="{'colorBlack' : page === ''}"
+        >
             Home
         </a>
 
         <div
             *ngIf="!(loginUser$ | async)"
         >
-            <a routerLink='/login' class="colorGrey ml-5 cursor-pointer">
+            <a
+                routerLink='/login'
+                class="colorGrey ml-5 cursor-pointer"
+                (click)="page = 'login'"
+                [ngClass]="{'colorBlack' : page === 'login'}"
+            >
                 Sign in
             </a>
-            <a routerLink='/register' class="colorGrey ml-5 cursor-pointer">
+            <a
+                routerLink='/register'
+                class="colorGrey ml-5 cursor-pointer"
+                (click)="page = 'register'"
+                [ngClass]="{'colorBlack' : page === 'register'}"
+            >
                 Sign up
             </a>
         </div>
@@ -19,13 +34,28 @@
         <div
             *ngIf="loginUser$ | async"
         >
-            <a routerLink='/' class="colorGrey ml-5 cursor-pointer">
+            <a
+                routerLink='/'
+                class="colorGrey ml-5 cursor-pointer"
+                (click)="page = 'new'"
+                [ngClass]="{'colorBlack' : page === 'new'}"
+            >
                 New article
             </a>
-            <a routerLink='/' class="colorGrey ml-5 cursor-pointer">
+            <a
+                routerLink='/'
+                class="colorGrey ml-5 cursor-pointer"
+                (click)="page = 'settings'"
+                [ngClass]="{'colorBlack' : page === 'settings'}"
+            >
                 Settings
             </a>
-            <a routerLink='/' class="colorGrey ml-5 cursor-pointer">
+            <a
+                routerLink='/'
+                class="colorGrey ml-5 cursor-pointer"
+                (click)="page = 'user'"
+                [ngClass]="{'colorBlack' : page === 'user'}"
+            >
                 {{ user.username }}
             </a>
         </div>

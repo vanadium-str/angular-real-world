@@ -20,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArticlesEffects } from './store/effects/articles.effects';
 import { AllArticlesComponent } from './components/all-articles/all-articles.component';
 import { MyArticlesComponent } from './components/my-articles/my-articles.component';
+import { ShowArticleComponent } from './components/show-article/show-article.component';
+import { FollowUserComponent } from './components/follow-user/follow-user.component';
+import { CommentsEffects } from './store/effects/comments.effects';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { MyArticlesComponent } from './components/my-articles/my-articles.compon
     LoginPageComponent,
     ArticlesPageComponent,
     AllArticlesComponent,
-    MyArticlesComponent
+    MyArticlesComponent,
+    ShowArticleComponent,
+    FollowUserComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { MyArticlesComponent } from './components/my-articles/my-articles.compon
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([GetUserEffects, ArticlesEffects]),
+    EffectsModule.forRoot([GetUserEffects, ArticlesEffects, CommentsEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

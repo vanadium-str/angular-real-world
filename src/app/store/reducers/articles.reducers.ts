@@ -1,4 +1,4 @@
-import { IArticles, IArticlesState } from "src/app/models/model-article";
+import { IArticlesState } from "src/app/models/model-article";
 import { ArticlesActions, EArticlesActions } from "../actions/articles.action";
 
 export type Action = ArticlesActions;

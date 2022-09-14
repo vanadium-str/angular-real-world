@@ -1,0 +1,28 @@
+<div class="flex items-center">
+    <div class="flex items-center mr-5">
+        <img
+            [src]="article.author.image"
+            class="avatar mr-3"
+        >
+        <div>
+            <div
+                class="username inline-block colorGreen"
+                [ngClass]="{'colorWhite' : white}"
+            >
+                {{ article.author.username }}
+            </div>
+            <div
+                class="text-xs text-white colorGrey"
+                [ngClass]="{'colorWhite' : white}"
+            >
+                {{ article.createdAt | date:'longDate' }}
+            </div>
+        </div>
+    </div>
+    <div class="mr-1 button buttonWhite">
+        Follow {{ article.author.username }}
+    </div>
+    <div class="button buttonGreen">
+        Favorite Article ({{ article.favoritesCount }})
+    </div> 
+</div>

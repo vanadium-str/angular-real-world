@@ -1,6 +1,6 @@
 export interface IArticles {
     articles: IArticle[],
-      articlesCount: number
+    articlesCount: number
 }
 
 export interface IArticle {

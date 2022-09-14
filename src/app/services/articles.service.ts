@@ -31,9 +31,17 @@ export class ArticlesService {
     }
 
     getAll(): Observable<IArticles> {
-        return this.http.get<IArticles>(`${url}/articles`).pipe(
-            catchError(err => this.handleError(err))
-        )
+
+        this.user$.subscribe(value => this.token = value.token);
+
+        return this.http.get<IArticles>(`${url}/articles`, {
+            headers: new HttpHeaders({
+              'Authorization': `Token ${this.token}`
+            })
+        })
+            .pipe(
+                catchError(err => this.handleError(err))
+            )
     }
 
     getFeed(): Observable<IArticles> {

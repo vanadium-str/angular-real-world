@@ -2,6 +2,7 @@
     <div>
         <div
             class="mb-5 nav inline-block pr-5"
+            [ngClass]="{'navDisable' : myArticles === false}"
             *ngIf="loginUser$ | async"
             (click)="myArticles = true"
         >
@@ -9,6 +10,7 @@
         </div>
         <div
             class="mb-5 nav inline-block pr-5"
+            [ngClass]="{'navDisable' : myArticles}"
             (click)="myArticles = false"
         >
             Global Feed
